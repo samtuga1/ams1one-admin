@@ -1,0 +1,83 @@
+import React from "react";
+import type { ILmcFinancial } from "@/interfaces/lmc.interface";
+import {
+  LuWallet,
+  LuArrowUp,
+  LuShoppingBag,
+  LuPercent,
+} from "react-icons/lu";
+import type { ElementType } from "react";
+
+function FinancialTab({ financial }: { financial: ILmcFinancial }) {
+  return (
+    <div className="flex flex-col divide-y divide-gray-100">
+      <div className="py-2.5 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <div className="bg-primary/10 rounded-md p-1.5">
+            <LuWallet className="w-3.5 h-3.5 text-primary" />
+          </div>
+          <div className="flex flex-col">
+            <span className="text-[0.6rem] font-gotham-black text-gray-400 uppercase tracking-wide">
+              Balance
+            </span>
+            <span className="text-sm font-jura-bold text-gray-800">
+              USD {financial.wallet_balance}
+            </span>
+          </div>
+        </div>
+      </div>
+      <div className="py-2.5 flex flex-col gap-1">
+        <span className="text-[0.6rem] font-gotham-black text-gray-400 uppercase tracking-wide mb-1">
+          Monthly
+        </span>
+        <Tile
+          icon={LuArrowUp}
+          iconBg="bg-blue-100"
+          iconColor="text-blue-600"
+          label="Top-Ups"
+          value={financial.monthly_topups}
+        />
+        <Tile
+          icon={LuShoppingBag}
+          iconBg="bg-green-100"
+          iconColor="text-green-600"
+          label="Sales"
+          value={financial.monthly_sales}
+        />
+        <Tile
+          icon={LuPercent}
+          iconBg="bg-orange-100"
+          iconColor="text-orange-500"
+          label="Commissions"
+          value={financial.monthly_commissions}
+        />
+      </div>
+    </div>
+  );
+}
+
+export default FinancialTab;
+
+const Tile = ({
+  icon: Icon,
+  iconBg,
+  iconColor,
+  label,
+  value,
+}: {
+  icon: ElementType;
+  iconBg: string;
+  iconColor: string;
+  label: string;
+  value: string;
+}) => (
+  <div className="flex items-center justify-between py-1">
+    <div className="flex items-center gap-2">
+      <div className={`${iconBg} rounded-md p-1`}>
+        <Icon className={`w-3 h-3 ${iconColor}`} />
+      </div>
+      <span className="text-xs text-gray-600 font-gotham-bold">{label}</span>
+    </div>
+    <span className="text-xs font-jura-bold">{value}</span>
+  </div>
+);
