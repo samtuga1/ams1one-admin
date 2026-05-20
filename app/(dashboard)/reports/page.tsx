@@ -20,7 +20,6 @@ import {
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
 import { usePageAccess } from "@/hooks/use-page-access";
-import { IoMailOutline } from "react-icons/io5";
 import { RiDownloadLine } from "react-icons/ri";
 import ApiError from "@/utils/api_error";
 

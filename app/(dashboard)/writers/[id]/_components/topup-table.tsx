@@ -1,6 +1,6 @@
 "use client";
 
-import CustomTable, { TableRow } from "@/components/custom-table";
+import CustomTable from "@/components/custom-table";
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import WritersService from "@/api/writers";
@@ -29,7 +29,7 @@ function TopUpTable({ writerId }: { writerId: string }) {
     setCurrentPage(1);
   };
 
-  const handleRowClick = (_row: TableRow, _index: number) => {};
+  const handleRowClick = () => {};
 
   const handleSort = (column: string, direction: "asc" | "desc") => {
     void column;

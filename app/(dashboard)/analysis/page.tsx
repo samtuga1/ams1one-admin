@@ -1,6 +1,6 @@
 "use client";
 import WritersPerformace from "./_components/writers-performance";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useState } from "react";
 import { Tabs } from "@heroui/react";
 import RetentionRatePerformance from "./_components/rate-performace";
 import { usePageAccess } from "@/hooks/use-page-access";
@@ -26,22 +26,25 @@ function AnalysisPageView() {
   );
   const canSeeRatePerf = hasAnyPage("analysis.retention_rate", "analysis.retention_trend");
 
-  const defaultTab: Tab = canSeeWritersPerf ? "writers" : "rate";
-  const [activeTab, setActiveTab] = useState<Tab>(defaultTab);
+  const [userSelectedTab, setUserSelectedTab] = useState<Tab>("writers");
 
-  useEffect(() => {
-    if ((activeTab === "writers" && !canSeeWritersPerf) ||
-        (activeTab === "rate" && !canSeeRatePerf)) {
-      setActiveTab(defaultTab);
-    }
-  }, [canSeeWritersPerf, canSeeRatePerf, activeTab, defaultTab]);
+  // Derive the active tab — fall back to a permitted tab if the user's
+  // selection is no longer accessible (e.g. permissions changed after load).
+  const canAccess = (tab: Tab) =>
+    (tab === "writers" && canSeeWritersPerf) ||
+    (tab === "rate" && canSeeRatePerf);
+  const activeTab = canAccess(userSelectedTab)
+    ? userSelectedTab
+    : canSeeWritersPerf
+      ? "writers"
+      : "rate";
 
   return (
     <div className="flex flex-col py-5 px-5 md:px-8">
       <div className="mb-5 shrink-0 sm:max-w-sm">
         <Tabs
           selectedKey={activeTab}
-          onSelectionChange={(key) => setActiveTab(key as Tab)}
+          onSelectionChange={(key) => setUserSelectedTab(key as Tab)}
         >
           <Tabs.ListContainer>
             <Tabs.List aria-label="Analysis view" className="rounded-lg">

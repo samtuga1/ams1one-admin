@@ -2,6 +2,7 @@
 
 import { Avatar, CloseButton, Tabs } from "@heroui/react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import {
@@ -251,7 +252,13 @@ function PlayerDetailView() {
   );
 }
 
-export default PlayerDetailView;
+export default function PlayerPage() {
+  return (
+    <Suspense>
+      <PlayerDetailView />
+    </Suspense>
+  );
+}
 
 const variantMap = {
   primary: "bg-linear-to-br from-primary to-[#5b4abf]",

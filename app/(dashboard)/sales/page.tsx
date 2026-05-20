@@ -2,7 +2,7 @@
 
 import { Tabs } from "@heroui/react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import FirstSalesSegment from "./_components/first-segment";
 import SecondSalesSegment from "./_components/second-segment";
 import ThirdSalesSegment from "./_components/third-segment";
@@ -82,4 +82,10 @@ function SalesPageView() {
   );
 }
 
-export default SalesPageView;
+export default function SalesPage() {
+  return (
+    <Suspense>
+      <SalesPageView />
+    </Suspense>
+  );
+}

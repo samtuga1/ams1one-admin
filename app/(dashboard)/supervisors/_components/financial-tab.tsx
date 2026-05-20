@@ -1,11 +1,6 @@
 import React from "react";
 import type { ILmcFinancial } from "@/interfaces/lmc.interface";
-import {
-  LuWallet,
-  LuArrowUp,
-  LuShoppingBag,
-  LuPercent,
-} from "react-icons/lu";
+import { LuWallet, LuArrowUp, LuShoppingBag, LuPercent } from "react-icons/lu";
 import type { ElementType } from "react";
 
 function FinancialTab({ financial }: { financial: ILmcFinancial }) {
@@ -35,21 +30,21 @@ function FinancialTab({ financial }: { financial: ILmcFinancial }) {
           iconBg="bg-blue-100"
           iconColor="text-blue-600"
           label="Top-Ups"
-          value={financial.monthly_topups}
+          value={String(financial.monthly_topups)}
         />
         <Tile
           icon={LuShoppingBag}
           iconBg="bg-green-100"
           iconColor="text-green-600"
           label="Sales"
-          value={financial.monthly_sales}
+          value={String(financial.monthly_sales)}
         />
         <Tile
           icon={LuPercent}
           iconBg="bg-orange-100"
           iconColor="text-orange-500"
           label="Commissions"
-          value={financial.monthly_commissions}
+          value={String(financial.monthly_commissions)}
         />
       </div>
     </div>

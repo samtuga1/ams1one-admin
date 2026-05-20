@@ -42,15 +42,12 @@ export interface CustomTableProps {
 function CustomTable({
   columns,
   data,
-  pageSize = 20,
   pagination = {
     totalCount: 1,
     pageNumber: 1,
     pageSize: 1,
   },
-  pageSizeOptions = [20, 50, 100],
   onPageChange,
-  onPageSizeChange,
   onRowClick,
   onSort,
   addTableBorder = true,

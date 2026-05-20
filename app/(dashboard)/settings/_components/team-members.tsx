@@ -1,10 +1,9 @@
 "use client";
 import CustomInputComponent from "@/components/custom-input-component";
-import { Avatar, Button, Chip, CloseButton, Spinner } from "@heroui/react";
+import { Avatar, Chip, CloseButton, Spinner } from "@heroui/react";
 import React from "react";
 import { BiSearch } from "react-icons/bi";
 import { FaRegAddressCard } from "react-icons/fa";
-import { IoFilter } from "react-icons/io5";
 import { MdOutlineHandshake } from "react-icons/md";
 import { RxPerson } from "react-icons/rx";
 import NewUserDrawer from "./new-user-drawer";

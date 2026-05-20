@@ -1,6 +1,7 @@
 "use client";
 
 import { Avatar, Button, Popover } from "@heroui/react";
+import { Suspense } from "react";
 import FilterRetailers from "./_components/filter-retailers";
 import CustomTable, { TableRow } from "@/components/custom-table";
 import { useState } from "react";
@@ -307,4 +308,10 @@ function RetailersView() {
   );
 }
 
-export default RetailersView;
+export default function WritersPage() {
+  return (
+    <Suspense>
+      <RetailersView />
+    </Suspense>
+  );
+}

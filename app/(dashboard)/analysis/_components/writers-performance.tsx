@@ -61,7 +61,7 @@ function WritersPerformace() {
 
   const { data: top10 = [] } = useQuery({
     queryKey: ["writers", "top-10"],
-    queryFn: WritersService.fetchTop10Writers,
+    queryFn: () => WritersService.fetchTop10Writers(),
   });
 
   const { data: activeWriterDaily30 } = useQuery({

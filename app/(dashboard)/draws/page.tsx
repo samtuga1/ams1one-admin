@@ -1,6 +1,6 @@
 "use client";
 
-import CustomTable, { TableRow } from "@/components/custom-table";
+import CustomTable from "@/components/custom-table";
 import { useState } from "react";
 import React from "react";
 import DrawDrawer from "./_components/draw-drawer";
@@ -57,7 +57,7 @@ function DrawView() {
     setCurrentPage(1);
   };
 
-  const handleRowClick = (_row: TableRow, _index: number) => {};
+  const handleRowClick = () => {};
 
   const handleSort = (column: string, direction: "asc" | "desc") => {
     void column;

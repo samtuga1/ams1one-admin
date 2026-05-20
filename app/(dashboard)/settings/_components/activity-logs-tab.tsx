@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import AdminUsersService from "@/api/admin-users";
 import type { IActivityLog } from "@/interfaces/admin-users.interface";
-import { Separator } from "@heroui/react";
 import {
   LuLogIn,
   LuUserPlus,
