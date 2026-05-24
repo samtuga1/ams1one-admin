@@ -8,6 +8,7 @@ import useAuth from "@/stores/auth.store";
 import AuthService from "@/api/auth";
 import { usePageAccess } from "@/hooks/use-page-access";
 import {
+  LuBanknote,
   LuBuilding2,
   LuCalendarDays,
   LuChevronRight,
@@ -18,6 +19,7 @@ import {
   LuMenu,
   LuSettings,
   LuShoppingBag,
+  LuSmartphone,
   LuUsers,
 } from "react-icons/lu";
 import { RiUserLine } from "react-icons/ri";
@@ -33,6 +35,8 @@ const navItems = [
   { label: "Dollar Rush Players", href: "/dollar-rush-players", icon: LuUsers, pagePrefixes: ["players.dollar_rush."] },
   { label: "5/90 Players", href: "/five-ninety-players", icon: LuUsers, pagePrefixes: ["players.five_ninety."] },
   { label: "Events & Tickets", href: "/events", icon: LuCalendarDays, pagePrefixes: ["events."] },
+  { label: "Payments", href: "/admin-payouts", icon: LuBanknote, pagePrefixes: ["admin_payouts."] },
+  { label: "App Releases", href: "/app-releases", icon: LuSmartphone, pagePrefixes: ["admin_payouts.", "admin."] },
 ];
 
 function canSeeItem(pages: string[] | "*" | undefined, prefixes: string[]): boolean {

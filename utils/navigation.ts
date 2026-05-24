@@ -8,6 +8,7 @@ const ROUTE_MAP: { prefixes: string[]; href: string }[] = [
   { prefixes: ["players.dollar_rush."], href: "/dollar-rush-players" },
   { prefixes: ["players.five_ninety."], href: "/five-ninety-players" },
   { prefixes: ["events."], href: "/events" },
+  { prefixes: ["admin_payouts."], href: "/admin-payouts" },
   { prefixes: ["admin."], href: "/settings" },
 ];
 

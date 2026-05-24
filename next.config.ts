@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  allowedDevOrigins: ["8fb0-154-160-18-12.ngrok-free.app", "54b8-154-160-19-96.ngrok-free.app", "192.168.100.76"],
+  allowedDevOrigins: [
+    "8fb0-154-160-18-12.ngrok-free.app",
+    "54b8-154-160-19-96.ngrok-free.app",
+    "192.168.100.76",
+  ],
   images: {
     remotePatterns: [
       {
@@ -10,7 +14,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "onassismystrocore-production.up.railway.app",
+        hostname: "s3.eu-west-1.amazonaws.com",
       },
       {
         protocol: "http",

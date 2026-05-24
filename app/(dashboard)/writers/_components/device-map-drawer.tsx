@@ -11,7 +11,7 @@ const DeviceMapInner = dynamic(() => import("./device-map-inner"), {
   ssr: false,
   loading: () => (
     <div className="flex items-center justify-center h-full">
-      <Spinner size="lg" />
+      <Spinner size="sm" />
     </div>
   ),
 });
@@ -23,7 +23,12 @@ interface Props {
 
 export default function DeviceMapDrawer({ isOpen, onClose }: Props) {
   const router = useRouter();
-  const { data: devices = [], isPending, isFetching, refetch } = useQuery({
+  const {
+    data: devices = [],
+    isPending,
+    isFetching,
+    refetch,
+  } = useQuery({
     queryKey: ["writers", "device-locations"],
     queryFn: WritersService.fetchDeviceLocations,
     enabled: isOpen,
@@ -63,7 +68,9 @@ export default function DeviceMapDrawer({ isOpen, onClose }: Props) {
               onClick={() => void refetch()}
               className="bg-gray-100 text-gray-600 rounded-lg"
             >
-              <LuRefreshCw className={`w-3.5 h-3.5 ${isFetching ? "animate-spin" : ""}`} />
+              <LuRefreshCw
+                className={`w-3.5 h-3.5 ${isFetching ? "animate-spin" : ""}`}
+              />
             </Button>
             <Button
               size="sm"
@@ -97,12 +104,14 @@ export default function DeviceMapDrawer({ isOpen, onClose }: Props) {
         <div className="flex-1 min-h-0 relative">
           {isPending ? (
             <div className="flex items-center justify-center h-full">
-              <Spinner size="lg" />
+              <Spinner size="sm" />
             </div>
           ) : devices.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full gap-3 text-gray-400">
               <LuMapPin className="w-10 h-10" />
-              <p className="text-sm">No devices have reported their location yet.</p>
+              <p className="text-sm">
+                No devices have reported their location yet.
+              </p>
             </div>
           ) : (
             <DeviceMapInner
